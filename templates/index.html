@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Recommender</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body { background-color: #141414; color: white; }
+    h1 { font-weight: bold; }
+    .movie-card { margin: 15px; background-color: #222; border-radius: 10px; overflow: hidden; width: 200px; }
+    .movie-card img { width: 100%; height: 300px; object-fit: cover; }
+    .movie-card h5 { padding: 10px; text-align: center; font-size: 16px; }
+    .recommendations { display: flex; flex-wrap: wrap; justify-content: center; }
+    .navbar { background-color: #E50914; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">🎬 Movie Recommender</span>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <h1 class="text-center">Find Your Next Movie</h1>
+  <form method="POST" class="d-flex justify-content-center mt-3">
+    <input type="text" name="movie_name" class="form-control w-50" placeholder="Enter a movie name">
+    <button type="submit" class="btn btn-danger ms-3">Recommend</button>
+  </form>
+
+  {% if movie_data %}
+    <h2 class="mt-5">Recommended Movies</h2>
+    <div class="recommendations">
+      {% for movie, poster in movie_data %}
+        <div class="movie-card">
+          <img src="{{ poster }}" alt="{{ movie }}">
+          <h5>{{ movie }}</h5>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+</body>
+</html>

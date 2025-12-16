@@ -32,7 +32,7 @@ OMDB_API_KEY = os.environ.get("573c6225")
 # =========================
 def get_poster(title):
     try:
-        url = f"http://www.omdbapi.com/?t={title}&apikey={OMDB_API_KEY}"
+        url = f"https://www.omdbapi.com/?t={title}&apikey={OMDB_API_KEY}"
         response = requests.get(url, timeout=5).json()
 
         if response.get("Poster") and response["Poster"] != "N/A":

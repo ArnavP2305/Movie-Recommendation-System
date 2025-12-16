@@ -25,7 +25,9 @@ cosine_sim = cosine_similarity(count_matrix)
 # =========================
 # OMDB API KEY (from Render env)
 # =========================
-OMDB_API_KEY = os.environ.get("573c6225")
+OMDB_API_KEY = os.environ.get("OMDB_API_KEY")
+
+
 
 # =========================
 # Fetch movie poster
